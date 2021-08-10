@@ -2,7 +2,7 @@
 
 ## Description
 __*A simulation of a somewhat complex auto body shop written in Java*__  
-The was a project I worked on after taking a simulation class my sophomore year of  
+This was a project I worked on after taking a simulation class my sophomore year of  
 college. In this class I learned basic Monte Carlo simulation, modeling, simulation  
 software such as Desmo-J, random number and random variate generation, and basic output  
 analysis.  These tools allowed me to create a semi-complex simulation in Java using the  
@@ -21,14 +21,14 @@ program takes to run and generate the results.  Above 1000 repetitions is not re
 
 ## Model Description
 The model in this simulation is an Auto Body Shop which fixes customers' cars.  The shop  
-has two different types of workers: 1. Normal Mechanics 2. Specialists. Normal mechanics  
+has two different types of workers: 1. Normal Mechanics and 2. Specialists. Normal mechanics  
 handle the majority of jobs, but from time to time, there will be a task that a normal  
-mechanic will not know how to fix, and therefore must be sent to a specialist. This auto  
+mechanic will not know how to fix, and therefore requires a specialist. This auto  
 body shop is in fierce competition with auto shop nearby. As a result, they wish to find  
 the optimal number of mechanics and specialists to minimize cost and customer loss.  
 Here is a step by step walkthrough of what a customer experiences.  
 1. The customer enters the shop with their car.  Based on the number of people currently  
-within the shop, there is a chance the customer will leave and go to the nearby shop.
+within the shop, there is a chance the customer will leave and go to the nearby shop (balk).
 2. If they do not leave, the customer waits to be treated by a mechanic.
 3. The mechanic may or may not know how to fix their problem and may refer the customer  
 to a specialist. 
