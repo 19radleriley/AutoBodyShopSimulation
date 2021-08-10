@@ -1,3 +1,4 @@
+package Simulation;
 /**
  * @author Riley Radle
  * 
@@ -20,6 +21,7 @@ import javax.swing.*;
 public class ReplicationModel extends Model
 {
    /** Config Variables and Statistical Trackers */
+   public static int SEED = 972;
    public static int NUM_REPLICATIONS = 100;
    public static boolean INCLUDE_OUTPUT_PER_REPLICATION = true;
    
@@ -117,7 +119,7 @@ public class ReplicationModel extends Model
       
       // Set the seed for the random number generator
       // (NOTE: Do this *before* connecting the experiment to the model)
-      exp.setSeedGenerator(979 + 2*runNumber);
+      exp.setSeedGenerator(SEED + 2*runNumber);
 
       // Connect model and experiment
       abs.connectToExperiment(exp);

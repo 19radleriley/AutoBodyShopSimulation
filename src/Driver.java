@@ -1,3 +1,4 @@
+package Simulation;
 /**
  * @author: Riley Radle
  * 
@@ -27,6 +28,7 @@ public class Driver implements ActionListener
    private JButton runSimulation;
    private JPanel container;
    private JCheckBox outputPerRep;
+   private JTextField seed;
 
    /** For Running the Simulation */
    private ReplicationModel simulation;
@@ -71,11 +73,22 @@ public class Driver implements ActionListener
       // Add all of the dropdown menus
       addDropdowns();
       
-      // Add one more checkbox
+      JPanel seedAndOutput = new JPanel();
+      seedAndOutput.setLayout(new GridLayout(3, 1));
+      
+      // Add a textfield for the seed
+      seed = new JTextField();
+      seed.setText("" + ReplicationModel.SEED);
+      seed.setToolTipText("Seed");
+      seedAndOutput.add(seed);
+
+      // Add checkbox for output/replication
       outputPerRep = new JCheckBox("Output Per Rep");
       outputPerRep.addActionListener(this);
-      container.add(outputPerRep);
+      seedAndOutput.add(outputPerRep);
+      container.add(seedAndOutput);
       
+      // Create and add a button for running the simulation.
       runSimulation = new JButton("Run Simulation");
       runSimulation.setFont(new Font("Calibri", Font.PLAIN, 20));
       runSimulation.addActionListener(this);
@@ -99,9 +112,25 @@ public class Driver implements ActionListener
       // Button for running simulation was clicked
       if (e.getSource() == runSimulation)
       {
-         ReplicationModel.NUM_REPLICATIONS = (int)numReplications.getSelectedItem();
          ReplicationModel.INCLUDE_OUTPUT_PER_REPLICATION = outputPerRep.isSelected();
-         simulation.runFullSimulation();
+         
+         // Set the seed and replication numbers making sure they are integers.
+         boolean areIntegers = true;
+         try
+         {
+            ReplicationModel.SEED = Integer.parseInt(seed.getText());
+            ReplicationModel.NUM_REPLICATIONS = (int)numReplications.getSelectedItem();
+         }
+         catch (Exception exception)
+         {
+            areIntegers = false;
+            JOptionPane.showMessageDialog(null, "Please enter integers for the seed and replication number", 
+                                                  "Error", JOptionPane.ERROR_MESSAGE);
+         }
+         
+         // If the numbers are integers, then run the simulation.
+         if (areIntegers)
+            simulation.runFullSimulation();
       }
       // One of the drop boxes was updated
       else if (e.getSource() == operationHours)
