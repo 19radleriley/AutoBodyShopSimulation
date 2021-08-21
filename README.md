@@ -63,7 +63,7 @@ customers are generated randomly.
 __*@Author: Riley Radle*__  
 Check out my socials!  
 *Instagram*: https://www.instagram.com/riley11radle/  
-*Artstation*: https://www.artstation.com/gatoradle11/    
+*Artstation*: https://www.artstation.com/radle2279/    
 *Linkedin*: https://www.linkedin.com/in/riley-radle-00a4a0184/
 
 </small>
